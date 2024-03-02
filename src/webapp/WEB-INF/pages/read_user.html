@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+</head>
+<body>
+<h2>User Details</h2>
+<form method="post" action="/user/update_user">
+    <input type="hidden" name="id" th:value="${user.id}" />
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" th:value="${user.firstName}" /><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" th:value="${user.lastName}" /><br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:value="${user.email}" /><br>
+    <input type="submit" value="Update" />
+</form>
+
+<br>
+<a href="/user/get_all_users">Back to Users</a>
+</body>
+</html>
