@@ -10,12 +10,13 @@ import java.util.List;
 @Service
 public class UserServiceImp implements UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserServiceImp(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<User> getAllUsers() {
         return userRepository.getAllUsers();
@@ -42,11 +43,6 @@ public class UserServiceImp implements UserService {
     @Transactional
     @Override
     public void deleteUser(Long id) {
-        User user = null;
-        try {
-            user = userRepository.deleteUser(id);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+        userRepository.deleteUser(id);
     }
 }

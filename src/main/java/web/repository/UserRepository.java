@@ -14,5 +14,5 @@ public interface UserRepository {
 
     User readUser(Long id);
 
-    User deleteUser(Long id);
+    void deleteUser(Long id);
 }

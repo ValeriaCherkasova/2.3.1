@@ -1,20 +1,21 @@
 package web.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GenerationType;
 import java.util.Objects;
 
 @Entity
 @Table(name = "users")
 public class User {
-
-
-    private @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
     @Column(name = "name")
-    @Size(min = 2, max = 30, message = "Name should be between 2 to 30")
     private String firstName;
 
     @Column(name = "last_name")
@@ -64,7 +65,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     @Override
     public String toString() {
